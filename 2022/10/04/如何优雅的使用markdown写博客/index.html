@@ -1,0 +1,829 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>如何优雅的使用Markdown写博客 | Louis'Blog</title><meta name="author" content="Louis"><meta name="copyright" content="Louis"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="如何优雅的使用Markdown来写博客    重构写作方式    学会Markdown基本语法    实践Markdown语法，写出优质文章     一、认识MarkdownMarkdown简介 Markdown尤其适用于编写说明文档，这得益于其文档在很多技术平台可以通用，此外Markdown也非常适合技术博客，这是因为Markdown可以使得说明部分和代码变得非常清晰易读。  Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅的使用Markdown写博客">
+<meta property="og:url" content="http://example.com/2022/10/04/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8markdown%E5%86%99%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Louis&#39;Blog">
+<meta property="og:description" content="如何优雅的使用Markdown来写博客    重构写作方式    学会Markdown基本语法    实践Markdown语法，写出优质文章     一、认识MarkdownMarkdown简介 Markdown尤其适用于编写说明文档，这得益于其文档在很多技术平台可以通用，此外Markdown也非常适合技术博客，这是因为Markdown可以使得说明部分和代码变得非常清晰易读。  Markdown">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img0.baidu.com/it/u=236085137,1979895699&fm=253&fmt=auto&app=138&f=JPEG?w=360&h=360">
+<meta property="article:published_time" content="2022-10-04T07:01:35.000Z">
+<meta property="article:modified_time" content="2022-10-04T07:12:30.792Z">
+<meta property="article:author" content="Louis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img0.baidu.com/it/u=236085137,1979895699&fm=253&fmt=auto&app=138&f=JPEG?w=360&h=360"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/10/04/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8markdown%E5%86%99%E5%8D%9A%E5%AE%A2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"limitCount":80,"languages":{"author":"Author: Louis","link":"Link: ","source":"Source: Louis'Blog","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source."}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '如何优雅的使用Markdown写博客',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-04 15:12:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img0.baidu.com/it/u=236085137,1979895699&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=360&amp;h=360" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 便签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Louis'Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 便签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">如何优雅的使用Markdown写博客</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-10-04T07:01:35.000Z" title="Created 2022-10-04 15:01:35">2022-10-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-10-04T07:12:30.792Z" title="Updated 2022-10-04 15:12:30">2022-10-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">6.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>21min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="如何优雅的使用Markdown写博客"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="如何优雅的使用Markdown来写博客"><a href="#如何优雅的使用Markdown来写博客" class="headerlink" title="如何优雅的使用Markdown来写博客"></a>如何优雅的使用Markdown来写博客</h2><blockquote>
+<ul>
+<li><p><input disabled="" type="checkbox">  重构写作方式</p>
+</li>
+<li><p><input disabled="" type="checkbox">  学会Markdown基本语法</p>
+</li>
+<li><p><input disabled="" type="checkbox">  实践Markdown语法，写出优质文章</p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="一、认识Markdown"><a href="#一、认识Markdown" class="headerlink" title="一、认识Markdown"></a>一、认识Markdown</h3><h4 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h4><blockquote>
+<p>Markdown尤其适用于编写说明文档，这得益于其文档在很多技术平台可以通用，此外Markdown也非常适合技术博客，这是因为Markdown可以使得说明部分和代码变得非常清晰易读。</p>
+</blockquote>
+<p><code>Markdown</code> 是一种==<strong>轻量级标记语言</strong>==，它允许人们使用易读易写的<em><strong>纯文本格式</strong></em>编写文档。使用<code>Markdown</code> 编写的文档可以轻松地导出为<code> HTML</code>、<code>Word</code>、图像、<code>PDF</code>、<code>Epub</code> 等多种格式的文档。由于<code>Markdown</code>的轻量化、易读易写特性，并对图片、图表以及数学公式都支持，使得许多网站都支持使用<code> Markdown</code> 来撰写文档或者发表文章。例如<code>GitHub</code>、简书、<code>StackOverflow</code>、有道云笔记等等。</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/5.jpeg"></p>
+<h4 id="Markdown编辑器"><a href="#Markdown编辑器" class="headerlink" title="Markdown编辑器"></a>Markdown编辑器</h4><p>按照<code>Markdown</code>编辑器的使用环境，我们将其归为以下三类：</p>
+<ul>
+<li>平台集成工具：各大在线博客、社区平台自带的写作工具，比如<code>CSDN</code>、简书、博客园等。</li>
+<li>独立软件：下载到机器上使用的独立产品，可以编辑本地文件，比如<code>Typora</code>、<code>MarkdownText</code>、<code>Haroopad</code>等。</li>
+<li>插件：它本身是不能独立使用的，必须借助支持此插件的编辑器，使得现有的编辑器具有<code>Markdown</code>的功能，例如<code>VScode</code>、<code>SubText</code>等。</li>
+</ul>
+<p>这三类软件分别面向三类<code>Markdown</code>用户，可以根据需求自主选择。</p>
+<h4 id="编辑器推荐"><a href="#编辑器推荐" class="headerlink" title="编辑器推荐"></a>编辑器推荐</h4><ol>
+<li>Typora </li>
+<li>VScode+插件 all in one</li>
+<li>onenote+插件oneMark</li>
+</ol>
+<h3 id="二、Markdown语法"><a href="#二、Markdown语法" class="headerlink" title="二、Markdown语法"></a>二、Markdown语法</h3><h4 id="结构类操作"><a href="#结构类操作" class="headerlink" title="结构类操作"></a>结构类操作</h4><h5 id="多级标题"><a href="#多级标题" class="headerlink" title="多级标题"></a>多级标题</h5><p>标题在Markdown语法中有两种实现方式：</p>
+<ol>
+<li>第一种实现方式：</li>
+</ol>
+<p>​    采用类<code>Atx</code>形式，在行首插入1到6个<code>#</code>,以实现对应的1到6级标题，Markdown最多支持六级标题，例如：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/1.png"></p>
+<p>​    其支持快捷键操作：</p>
+<ul>
+<li><code>ctrl</code>+<code>1-6</code>实现快速设置对应的1到6级标题</li>
+<li><code>ctrl</code>+<code>0</code>用于清除标题格式</li>
+</ul>
+<ol start="2">
+<li>第二种实现方式</li>
+</ol>
+<p>采用类<code>Setext</code>形式，即用底线形式，利用任意数量的<code>=</code>和<code>-</code>实现一级标题和二级标题效果。</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/2.png"></p>
+<h5 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h5><blockquote>
+<p>在<code>.</code>和文字中间需要有一个空格。此外，可以用<code>\.</code>来取消显示为列表（用反斜杠进行转义）。</p>
+</blockquote>
+<p>有序列表是使用数字+<code>.</code>来表示，语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. 打开冰箱</span><br><span class="line"></span><br><span class="line">   1. 插电</span><br><span class="line"></span><br><span class="line">   2. 开机</span><br><span class="line"></span><br><span class="line">   3. 开门</span><br><span class="line"></span><br><span class="line">2. 把大象放进去</span><br><span class="line"></span><br><span class="line">3. 关闭冰箱</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其支持快捷键操作：</p>
+<ul>
+<li>降级快捷键：<code>Tab</code></li>
+<li>升级快捷键：<code>Shift</code>+<code>Tab</code></li>
+</ul>
+<p>显示效果如图：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/3.png"></p>
+<h5 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h5><p>无序列表可以使用<code>*</code>、<code>+</code>、<code>-</code>作为列表标记，其语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- 蔬菜</span><br><span class="line">    - 青菜</span><br><span class="line">    - 菠菜</span><br><span class="line">    - 大白菜</span><br><span class="line">- 水果</span><br><span class="line">  - 苹果</span><br><span class="line">  - 葡萄</span><br><span class="line">  - 桃子</span><br><span class="line">- 肉</span><br><span class="line">    - 猪肉</span><br><span class="line">    - 牛肉</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>显示效果如图：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/4.png"></p>
+<p>快捷键操作：<code>ctrl</code>+<code>shift</code>+<code>]</code></p>
+<h5 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h5><p>To-Do任务列表是一种非常受欢迎的时间管理工具，它适用于工作计划、个人生活、以及家庭学习。Markdown的To-Do List任务列表是由无序列表，复选框，图标几种功能的组合。在无序列表<code>-</code>、<code>+</code>、<code>*</code>后加一个空格再使用中括号<code>[]</code>申明复选框。在中括号中写入<code>x</code>,便可实现选中效果。其标准的语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- [ ] 刷牙</span><br><span class="line">- [ ] 洗脸</span><br><span class="line">- [ ] 钥匙</span><br><span class="line">- [x] 钱包</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如图：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/6.png"></p>
+<p>在使用的过程中需要注意的是：</p>
+<ol>
+<li>复选框只有跟在无序列表后才可以被显示</li>
+<li>中括号<code>[]</code>里只能是<code>空格</code>或者<code>x</code>,否则不会被渲染成复选框标签</li>
+</ol>
+<h5 id="列表的嵌套"><a href="#列表的嵌套" class="headerlink" title="列表的嵌套"></a>列表的嵌套</h5><h6 id="嵌套列表"><a href="#嵌套列表" class="headerlink" title="嵌套列表"></a>嵌套列表</h6><blockquote>
+<p>一个制表符等同于四个空格的效果，在有使用空格缩进的情况下,使用制表符效率比较高，另外在编程过程中空格和制表符不要混合使用，不然出错找原因很麻烦的</p>
+</blockquote>
+<ol>
+<li><p>无序列表嵌套无序列表：</p>
+<p>子项目需要按<code>TAB</code>键已实现缩进四个空格，再根据无序列表的语法即可达到嵌套的效果，其标准写法如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- This is the first list item</span><br><span class="line">    - lndented item</span><br><span class="line">    - lndented item</span><br><span class="line">    - lndented item</span><br><span class="line">-  Here is the second list item</span><br><span class="line">-  And here is the third list item</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/8-166377707121225.png"></p>
+</li>
+<li><p>有序列表嵌套有序列表</p>
+<p>有序列表嵌套有序列表可参见<a href="#2.1.2%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8">2.1.2有序列表</a></p>
+</li>
+<li><p>有序列表嵌套无序列表</p>
+<p>有序列表和无序列表可以相互嵌套，其标准语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. First item</span><br><span class="line">2. Second item</span><br><span class="line">3. Third item</span><br><span class="line">    - lndented item</span><br><span class="line">    - lndented item</span><br><span class="line">4. Fourth item</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>​        显示效果如下:</p>
+<img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/9-166377819999039.png" style="zoom: 45%;" />
+
+<ol start="4">
+<li><p>无序列表嵌套有序列表</p>
+<p>有序列表和无序列表可以交错使用,其标准语法如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- lndented item</span><br><span class="line">- lndented item</span><br><span class="line">- lndented item</span><br><span class="line">    1. first item</span><br><span class="line">    2. second item</span><br><span class="line">    3. third item</span><br><span class="line">- lndented item</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/10.png"></p>
+</li>
+</ol>
+<h6 id="嵌套段落"><a href="#嵌套段落" class="headerlink" title="嵌套段落"></a>嵌套段落</h6><p>当我们需要保留列表连续性，同时又想在列表中添加另外一种元素时，这个时候需要将该元素缩进四个空格或一个制表符，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- This is the first list item</span><br><span class="line">- Here is the second list item</span><br><span class="line">    I need to add another paragraph below the second list item</span><br><span class="line">- And here is the third list item</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/7.png"></p>
+<h6 id="嵌套代码块"><a href="#嵌套代码块" class="headerlink" title="嵌套代码块"></a>嵌套代码块</h6><p>代码块通常采用四个空格或者一个制表符进行缩进，一旦它们被放进列表时，需要将他们缩进八个空格或者两个制表符。由于代码块语法本身占据四个空格，故，只需要先再分行时按<code>Tab</code>缩进四个空格，再正常使用代码块语法即可，其标准语法如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> Open the file</span><br><span class="line"><span class="number">2.</span> Find the following code block on Line <span class="number">8</span>:</span><br><span class="line">    <span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Hello,WOrld!&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="number">3.</span> Don<span class="number">&#x27;</span>t forget Combined with <span class="string">&#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/11.png"></p>
+<h6 id="嵌套图片"><a href="#嵌套图片" class="headerlink" title="嵌套图片"></a>嵌套图片</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. Open the file</span><br><span class="line">2. Find the following picture:</span><br><span class="line">    ![](https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/12.jpg)</span><br><span class="line">3. Close the file	</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如图：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/13.jpg"></p>
+<h6 id="嵌套引用块"><a href="#嵌套引用块" class="headerlink" title="嵌套引用块"></a>嵌套引用块</h6><blockquote>
+<p>引用块语法会在下面给出详细介绍，尽管其本身语法足够简单</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- This is the first list item</span><br><span class="line">-  Here is the second list item</span><br><span class="line">    &gt; A blockquote would look great below the second list item</span><br><span class="line">-  And here is the third list item</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/14.jpg"></p>
+<h5 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h5><p>在Markdown中，使用<code>|</code>来分割不同列单元格,使用三个或多个连字符<code>-</code>来创建每列的标题，其中可以通过在标题行中的连字符的左侧，右侧或两侧添加冒号（<code>:</code>），将列中的文本对齐到左侧，右侧或中心：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| Syntax      | Description | Test Text     |</span><br><span class="line">| :---        |    :----:   |          ---: |</span><br><span class="line">| Header      | Title       | Here&#x27;s this   |</span><br><span class="line">| Paragraph   | Text        | And more      |</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Syntax</th>
+<th align="center">Description</th>
+<th align="right">Test Text</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Header</td>
+<td align="center">Title</td>
+<td align="right">Here’s this</td>
+</tr>
+<tr>
+<td align="left">Paragraph</td>
+<td align="center">Text</td>
+<td align="right">And more</td>
+</tr>
+</tbody></table>
+<p>使用连字符和管道创建表会导致创建一个表格会比较复杂。为了加快该过程，建议使用快捷键进行快捷操作，其快捷键：<code>ctrl</code>+<code>T</code></p>
+<h4 id="代码类操作"><a href="#代码类操作" class="headerlink" title="代码类操作"></a>代码类操作</h4><h5 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h5><blockquote>
+<p>反引号**`**需要在英文状态下键盘数字1的最左边</p>
+</blockquote>
+<p>在Markdown中，行内代码使用反引号包裹，其标准语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`java`是一门面向对象编程语言，不仅吸收了`C++`语言的各种优点，还摒弃了`C++`里让人难以理解的多继承、指针等概念，因此`Java`语言具有功能强大和简单易用两大特征。</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如图所示：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/15.jpg"></p>
+<p>快捷键操作：<code>ctrl</code>+``Shift<code>+\</code></p>
+<h5 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h5><p>代码块创建方式可以三个连续的**```<strong>也可以用三个连续的</strong>~~~**其标准语法如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">``` c</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Hello,WOrld!&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/16.jpg"></p>
+<p>快捷键：<code>Ctrl</code>+<code>Shift</code>+<code>K</code></p>
+<blockquote>
+<p> 倘若需要在代码块内显示行号，以Typora为例，在文件→偏好设置→Markdown→勾选【显示行号】→再重启Typora即可。</p>
+</blockquote>
+<h4 id="元素类操作"><a href="#元素类操作" class="headerlink" title="元素类操作"></a>元素类操作</h4><h5 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h5><h6 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h6><p>Markdown本身并不支持修改字体、大小、颜色、高亮和底色，但是由于Markdown是基于HTML实现的，所以我们可以借助<code>HTML</code>实现文字样式设置。</p>
+<ol>
+<li><p>字体和大小</p>
+<p>用于规定文字的尺寸大小，取值从1到7，浏览器默认值为3:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;黑体&quot;</span>&gt;</span>我是黑体字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;微软雅黑&quot;</span>&gt;</span>我是微软雅黑<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;fantasy&quot;</span>&gt;</span>我是fantasy<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#0099ff</span> <span class="attr">size</span>=<span class="string">3</span> <span class="attr">face</span>=<span class="string">&quot;微软雅黑&quot;</span>&gt;</span>我是微软雅黑<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">#ff7f50</span> <span class="attr">size</span>=<span class="string">5</span> <span class="attr">face</span>=<span class="string">&quot;黑体&quot;</span>&gt;</span>我是黑体字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">gray</span> <span class="attr">size</span>=<span class="string">7</span> <span class="attr">face</span>=<span class="string">&quot;黑体&quot;</span>&gt;</span>我是黑体字<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>​        显示效果：</p>
+<p>​        <font face="黑体">我是黑体字</font></p>
+<p>​        <font face="微软雅黑">我是微软雅黑</font></p>
+<p>​        <font face="fantasy">我是fantasy</font></p>
+<p>​        <font color=#0099ff size=3 face="微软雅黑">我是微软雅黑</font></p>
+<p>​        <font color=#ff7f50 size=5 face="黑体">我是黑体字</font></p>
+<p>​        <font color=gray size=7 face="黑体">我是黑体字</font></p>
+<blockquote>
+<p>颜色名和对应的十六进制颜色值可查颜色列表。</p>
+</blockquote>
+<ol start="2">
+<li>黄色高亮</li>
+</ol>
+<ul>
+<li><p>使用<code>HTML</code></p>
+<p>语法：<code>&lt;mark&gt;我是需要高亮强调的内容&lt;/mark&gt;  </code></p>
+<p>显示效果：<mark>我是需要高亮强调的内容</mark></p>
+</li>
+<li><p>利用Typora提供的扩展语法</p>
+<p>语法：<code>==需要高亮的内容==</code></p>
+<p>显示效果：==需要高亮强调的内容==</p>
+</li>
+</ul>
+<ol start="3">
+<li><p>背景色</p>
+<p>我们借助<code>table</code>、<code>tr</code>、<code>td</code>等表格标签的<code>bgcolor</code>属性来实现文字底色，其语法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">#0099ff</span>&gt;</span>背景色的设置是按照十六进制颜色值：#0099ff<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">bgcolor</span>=<span class="string">LightSteelblue</span>&gt;</span>背景色的设置是按照颜色名：LightSteelBlue<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<table><tr><td bgcolor=#0099ff>背景色的设置是按照十六进制颜色值：#0099ff</td></tr></table>
+<table><tr><td bgcolor=LightSteelBlue>背景色的设置是按照颜色名：LightSteelBlue</td></tr></table></li>
+</ol>
+<h6 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h6><p>在Markdown中，如果要用斜体显示文本，在单词或者短语前后各添加一个星号<code>*</code>或者下划线<code>_</code>。其标准语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*我是需要斜体的内容*</span><br><span class="line">_我是需要斜体的内容_</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p><em>我是需要斜体的内容</em><br><em>我是需要斜体的内容</em></p>
+<p>快捷键：<code>Ctrl</code>+<code>I</code></p>
+<h6 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h6><p>粗体和斜体同样都是被用于强调重要性，语法也类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**我是需要加粗强调的内容**</span><br><span class="line">__我是需要加粗强调的内容__</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p><strong>我是需要加粗强调的内容</strong><br><strong>我是需要加粗强调的内容</strong></p>
+<p>快捷键：<code>Ctrl</code>+<code>B</code></p>
+<h6 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h6><p>下划线是是属于<code>HTML</code>语法中的，但是由于Markdown支持<code>html</code>语法，所以我们在使用的过程可以通过标签包围的方式，实现下划线的效果，标准语法如下：</p>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;这是需要下划线标记的内容&lt;/u&gt;</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<u>这是需要下划线标记的内容</u></p>
+<p>快捷键：<code>Ctrl</code>+<code>U</code></p>
+<h6 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h6><p>在使用删除线语法时我们通常把要删除的内容写出，再在文字和结尾加上<code>~~</code>，其语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~我是需要被删除的内容~~</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<del>我是需要被删除的内容</del></p>
+<p>快捷键：<code>Alt</code>+<code>Shift</code>+<code>5</code></p>
+<h6 id="上标和下标"><a href="#上标和下标" class="headerlink" title="上标和下标"></a>上标和下标</h6><p>Markdown原生语法并不支持<code>上标</code>和<code>下标</code>，但是Typora内置了上标和下标的扩展语法，使得我们可以较为轻松的使用它。</p>
+<ul>
+<li>第一种实现方式（扩展语法）：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">水：H~2~0          	面积：m^2^</span><br><span class="line">双氧水：H~2~0~2~     体积：m^3^</span><br></pre></td></tr></table></figure>
+
+<p>  显示效果：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>水</td>
+<td>H<del>2</del>0</td>
+</tr>
+<tr>
+<td>双氧水</td>
+<td>H<del>2</del>0<del>2</del></td>
+</tr>
+<tr>
+<td>面积</td>
+<td>m^2^</td>
+</tr>
+<tr>
+<td>体积</td>
+<td>m^3^</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>第二种实现方式（HTML标签）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">水：H<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>0</span><br><span class="line">面积：m<span class="tag">&lt;<span class="name">sup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span><br><span class="line">双氧水：H<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span>0<span class="tag">&lt;<span class="name">sub</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sub</span>&gt;</span></span><br><span class="line">体积：m<span class="tag">&lt;<span class="name">sup</span>&gt;</span>3<span class="tag">&lt;/<span class="name">sup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p>水：H<sub>2</sub>0                 面积：m<sup>2</sup><br>双氧水：H<sub>2</sub>0<sub>2</sub>        体积：m<sup>3</sup></p>
+</li>
+<li><p>第三种实现方式（公式块）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">  下标：a_1 , 上标：b^2</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<br>$$<br>下标：a_1 , 上标：b^2<br>$$</p>
+</li>
+</ul>
+<h6 id="表情符号"><a href="#表情符号" class="headerlink" title="表情符号"></a>表情符号</h6><p>通常有两种方法将表情符号添加到Markdown文件中，分别是直接从<a target="_blank" rel="noopener" href="https://emojipedia.org/">Emojipedia</a> 等来源复制表情符号并将其粘贴到文档中，或者键入表情符号短代码来插入表情符号。值得注意的是，并非所有的Markdown应用程序支持。下面给出一些常用的表情符号用法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">人物：:smile: :laughing: :dizzy_face: :sob: :cold_sweat: :sweat_smile:  :cry: :triumph: :heart_eyes: :relaxed: :sunglasses: :weary: :smiling_imp:</span><br><span class="line">自然：:sunny: :umbrella: :snowflake: :cyclone: :pig: :frog: :dog: :chicken:</span><br><span class="line">物体：：gift_heart：：alarm_clock：:bulb: :pill: :bear: :calender:</span><br><span class="line">符号：:one: :arrow_up: :arrow_left: :accept: :underage:</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p>人物：:smile: :laughing: :dizzy_face: :sob: :cold_sweat: :sweat_smile:  :cry: :triumph: :heart_eyes: :relaxed: :sunglasses: :weary::smiling_imp:</p>
+<p>自然：:sunny: :umbrella: :snowflake: :cyclone: :pig: :frog: :dog: :chicken:</p>
+<p>物体：：gift_heart：：alarm_clock：:bulb: :pill: :bear: :calender:<br>符号：:one: :arrow_up: :arrow_left: :accept: :underage:</p>
+<blockquote>
+<p>更多更全的表情符号段代码可参见<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40896997/article/details/106551767">Markdown表情大全</a></p>
+</blockquote>
+<h5 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h5><p>Markdown文件不支持内嵌图片，所有图片都是以外部链接的方式插入，其本质是<em><strong>引用</strong></em>而非<em><strong>包含</strong></em>图片本身。因为Markdown文件和图片之间是相对较弱的<em>引用</em>关系，一旦文档中引用的那个图片本身存放在本地或者网络上的位置发生了变化，或者引用的那个图片不存在了，那么Markdown文档就无法正确显示，这也是我们在使用Markdown的过程中一大痛点。</p>
+<p>在Markdown中插入图片的最基础的语法：</p>
+<p><code>![Alternative text](link &quot;optional title&quot;)</code></p>
+<p>快捷键：<code>Ctrl</code>+<code>Shift</code>+<code>I</code></p>
+<ul>
+<li><p>Alternative text：图片的Alternative文本，即替代文本，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字。</p>
+</li>
+<li><p> link：可以是图片的本地地址、网址。其中本地地址包括绝对地址和相对地址。 </p>
+</li>
+<li><p> “optional title”：鼠标悬置于图片上会出现的标题文字，可以选择不写。</p>
+</li>
+</ul>
+<blockquote>
+<p>举例说明一下，例如<code>![电脑壁纸](备选图片1.png &quot;蜡笔小新&quot;)</code>，鼠标再图片上悬停就会显示文字“蜡笔小新”</p>
+<p>如果图片不可以正常显示，就显示替代文字“电脑壁纸”</p>
+</blockquote>
+<p>Markdown通常由三种方式插入图片，下面分别介绍这三种方式：</p>
+<ol>
+<li>插入本地图片</li>
+</ol>
+<ul>
+<li><p>相对路径：本地图片的<strong>相对路径</strong>是指图片相对于正在编写的Markdown文件的一个<strong>相对位置关系</strong>：可以是需要引用的图片在当前Markdown文件的上一层目录，也可以是需要引用的图片在当前Markdown文件的下一层目录，但是我们为了避免写错，也方便理解，统一让图片和MD文件处以同一目录下。通过Typora进行设置，可以在Markdown文件所在的目录下自动生成<code>.assets</code>文件夹，此时只需将图片保存在此文件夹下即可。</p>
+<p>Typora设置：文件 —&gt; 偏好设置 —&gt; 选择【复制图片到./$(filename).assets文件夹】 —&gt; 勾选【优先使用相对路径】—&gt; 重启Typora </p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/19-166393755155754.jpg"></p>
+<p>经过设置后，每次新建一个<code>MD</code>文件时，会在<code>MD</code>文件所在文件夹目录中自动创建一个同名的<code>.assets</code>文件复制的图片会自动保存到其中。</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/20-166393758068856.jpg"></p>
+</li>
+<li><p>绝对路径：</p>
+<p>文件的「绝对路径地址」是以盘符（Windows系统）或者/号（MacOS或Linux）作为开头的路径地址，选中图片按住<code>shift</code>键右击，点击<code>复制为路径</code>的选项即可获取图片的「绝对路径地址」。</p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/21-166394046956659.jpg"></p>
+</li>
+</ul>
+<ol start="2">
+<li><p>插入网络图片</p>
+<p>Markdown中「引用」本地图片的话，本地图片的存放在硬盘上的位置不能发生变化，同时如果要将Markdown文档分享给别人时，也要一并将图片打包发送，且必须使用相对路径。这使得我们写的文件分享起来操作繁琐，要避免这种情况的话，我们可以采用插入网络图片的方式。获取网络图片地址通常有两种形式，一种是在互联网中找到想要的图片并复制其图片地址，另外一种是使用<strong>图床</strong>，将想要的图片下载并存放到自己本地的硬盘上，再将其上传至<strong>图床</strong>，然后获取图片的网络地址。</p>
+<p>示例：<code>![蜡笔小新](https://tse1-mm.cn.bing.net/th/id/OIP-C.nlQrP10TiyDhAvXhV6wAFgHaHa?w=212&amp;h=212&amp;c=7&amp;r=0&amp;o=5&amp;dpr=1.5&amp;pid=1.7)</code></p>
+<p><img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.nlQrP10TiyDhAvXhV6wAFgHaHa?w=212&h=212&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="蜡笔小新"></p>
+<blockquote>
+<p>「图床」就是用来存放图片的网络上的一台服务器，一般「图床」都会提供方便的上传图片、查看图片、删除图片等管理图片的功能。</p>
+</blockquote>
+</li>
+<li><p>把图片存入Markdown文件</p>
+<p>用<a target="_blank" rel="noopener" href="https://tool.chinaz.com/tools/imgtobase/">base64转码工具</a>把图片转成一段字符串，然后把字符串填到基础格式中链接的那个位置。</p>
+<ul>
+<li><p>base64：顾名思义，就是包括小写字母a-z、大写字母A-Z、数字0-9、符号”+”、”/“一共64个字符的字符集，（另加一个“=”，实际是65个字符，至于为什么还会有一个“=”，这个后面再说）。任何符号都可以转换成这个字符集中的字符，这个转换过程就叫做base64编码。</p>
+</li>
+<li><p>base64编码：将图片转换成二进制序列，然后按每6个二进制位为一组，分成若干组，如果不足6位，则低位补0。每6位组成一个新的字节，高位补00，构成一个新的二进制序列，最后根据base64索引表中的值找到对应的字符。</p>
+</li>
+<li><p>由于将图片编码后会产生大量字符，故基础用法和高级语法不做展示，详情可参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8c0d00fca9b3">Markdown插入图片的完美解决方法 - 简书 (jianshu.com)</a></p>
+<p><img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/23.jpg"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h5><p>超链接是超级链接的简称。只要单击超链接就可以自动跳转到超链接所链接的目标地址，所以在创建超链接之前，必须首先确定链接的载体和链接的目标地址，按照连接路径的不同，超链接一般分为以下三种类型：内部链接、锚点链接和外部链接。。</p>
+<p>在Typora中只有外部链接和锚点链接有意义，下面着重这两种形式进行说明。</p>
+<h6 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h6><p>所谓外部链接，是当我们单击之后可以跳转到指定的网站目标地址。Markdown 超链接的基本语法如下：</p>
+<p><code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></p>
+<p>按照链接的载体，我们通常又将超链接分成以下三种常用形式：</p>
+<ul>
+<li><p>文本链接</p>
+<p>示例：欢迎来到我的[博客](<a target="_blank" rel="noopener" href="https://codeworker007.github.io/">https://codeworker007.github.io/</a> “Louis Blog”)</p>
+<p>需要注意的是，链接title是当鼠标悬停在链接上时会出现的文字，这个title是可选的，它放在圆括号中链接地址后面，跟链接地址要有空格分隔。</p>
+</li>
+<li><p>图片链接</p>
+<p>此外我们还可以对图片进行超链接，实现点击图片即可跳转，只需要用到<code>HTML</code>的<code>&lt;a&gt;</code>和<code>&lt;img&gt;</code>标签即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> =<span class="string">&quot;超链接地址&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;图片地址&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>有的Markdown编辑器还支持更简单的操作，至少Typora是支持的，只需要将链接代码套在图片代码外边即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[![](图片地址)](超链接地址)</span><br></pre></td></tr></table></figure>
+
+<p>示例：[<img src="https://louis-typora.oss-cn-nanjing.aliyuncs.com/img_for_typora/24.jpeg">](<a target="_blank" rel="noopener" href="https://codeworker007.github.io/">Louis&amp;Holly - 这是一起为未来努力奋斗的痕迹 (codeworker007.github.io)</a>)</p>
+</li>
+<li><p>网址链接</p>
+<p>我们也可以使用尖括号使得<code>URL</code>或者<code>Email</code>地址变成可点击的链接。像这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;https://codeworker007.github.io/&gt;</span><br><span class="line">&lt;&lt;https://markdown.com.cn&gt;</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p>&lt;<a target="_blank" rel="noopener" href="https://markdown.com.cn/">https://markdown.com.cn</a><br><a target="_blank" rel="noopener" href="https://codeworker007.github.io/">https://codeworker007.github.io/</a></p>
+</li>
+</ul>
+<p>当一个超链接在文章中反复出现时，可以使用全局声明的形式，减少文章编写的工作量，也使得文章可读性大大增强。全局声明超链接的用法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">####全局声明超链接</span><br><span class="line"></span><br><span class="line">欢迎来到我的[博客][Blog]，我的[博客][Blog]就是我的世界！</span><br><span class="line"></span><br><span class="line">[Blog]:https://codeworker007.github.io/</span><br><span class="line"></span><br><span class="line">其中[博客][Blog]是全局声明超链接的第一部分</span><br><span class="line">而[Blog]:https://codeworker007.github.io/则是第二部分</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p>欢迎来到我的<a target="_blank" rel="noopener" href="https://codeworker007.github.io/">博客</a>，我的<a target="_blank" rel="noopener" href="https://codeworker007.github.io/">博客</a>就是我的世界！</p>
+<p>可以将链接的第二部分放在Markdown文档中的任何位置。通常我们会选择将它们放在出现的段落之后或者文档的末尾</p>
+<p>快捷键操作：<code>Ctrl</code>+<code>K</code></p>
+<blockquote>
+<p>在Typora中，链接跳转需要按住<code>Ctrl</code>再鼠标单击即可</p>
+</blockquote>
+<h6 id="锚点链接"><a href="#锚点链接" class="headerlink" title="锚点链接"></a>锚点链接</h6><p>所谓锚点链接是指通过点击<strong>锚点</strong>可以跳转到该<strong>锚点</strong>所指定的位置，可以帮助读者快速定位，方便浏览和阅读。</p>
+<p>创建锚点链接十分简单，具体实现方法如下：</p>
+<ul>
+<li><p>定义位置标记</p>
+<p>先定义想让锚点去指定的位置标记（即这行代码： <code>&lt;div id=&quot;jump&quot;&gt;&lt;/div&gt;</code>)，其中“jump”是自定义的位置名称，可以随意修改。</p>
+</li>
+<li><p>设置锚点链接</p>
+<p>将定义好的位置标记放到要跳转到的地方。 然后把锚点链接（即<code>#jump</code>）放在需要放置的地方，当点击这个锚点链接时就会跳到位置标记所在的位置。</p>
+</li>
+</ul>
+<p>具体语法示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">定义位置标记：### &lt;a id=&quot;jump&quot;&gt;三、快捷键汇总&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">设置锚点链接：参考[快捷键汇总](#jump)</span><br></pre></td></tr></table></figure>
+
+<p>示例效果：参考<a href="#jump">快捷键汇总</a></p>
+<h5 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h5><p>引用通常放在文章的开头，即从一开始抛出某个观点，后面再用大篇幅去做详细的解读。块引用有很好的聚焦功能，但是整篇文章中我们需要注意引用的占比，尽量不要使用太多，否则会分散读者的注意力。其基本语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; &quot;时间就像海绵里的水，只要愿挤，总还是有的。&quot;---鲁迅</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<blockquote>
+<p>“时间就像海绵里的水，只要愿挤，总还是有的。”—鲁迅</p>
+</blockquote>
+<p>引用同样是可以嵌套的，在一个引用中，可以包含新一层的引用，只需要行首块多加一个大于号<code>&gt;</code>，其用法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">### 引用的嵌套</span><br><span class="line"></span><br><span class="line">需要注意的是，大于号后面需要一个空格</span><br><span class="line"></span><br><span class="line">&gt; 这是一个块引用</span><br><span class="line">&gt;</span><br><span class="line">&gt; &gt; 这是一个二层块引用</span><br><span class="line">&gt;</span><br><span class="line">&gt; 返回到第一层</span><br><span class="line"></span><br><span class="line">当然我们也可以直接使用多层块引用</span><br><span class="line"></span><br><span class="line">&gt; &gt; &gt; &gt; &gt; &gt; &gt; 直接的七层块引用</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<blockquote>
+<p>这是一个块引用</p>
+<blockquote>
+<p>这是一个二层块引用</p>
+</blockquote>
+<p>返回到第一层</p>
+</blockquote>
+<p>当然我们也可以直接使用多层块引用</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>直接的七层块引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>快捷键：<code>Ctrl</code>+<code>Shift</code>+<code>Q</code></p>
+<h5 id="水平分割线"><a href="#水平分割线" class="headerlink" title="水平分割线"></a>水平分割线</h5><p>分隔线是用一条明显的横线，来划分文章的上下两个部分，从而使排版变得美观，保持页面的平衡，引导读者的注意力。常见用在标题与正文间的分隔和不同内容间的分隔。</p>
+<ol>
+<li><p>在 Markdown 文件中，连续的三个星号 <code>*</code>、减号 <code>-</code>、下划线 <code>_</code>」都会被渲染成分割线，其基础用法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">### 下面是三类分割线</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">使用「星号」作为分割线</span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"></span><br><span class="line">使用「减号」作为分割线</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">使用「下划线」作为分割线</span><br><span class="line">___</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<p>使用「星号」作为分割线</p>
+<hr>
+<p>使用「减号」作为分割线</p>
+<hr>
+<p>使用「下划线」作为分割线</p>
+<hr>
+</li>
+<li><p>修改分割线的样式</p>
+<ul>
+<li>修改分割线的粗细</li>
+<li>修改分割线的颜色</li>
+<li>修改分割线的类型</li>
+</ul>
+</li>
+</ol>
+<h3 id="三、快捷键汇总"><a href="#三、快捷键汇总" class="headerlink" title="三、快捷键汇总"></a><a id="jump">三、快捷键汇总</a></h3><table>
+<thead>
+<tr>
+<th align="center">功能</th>
+<th align="center">macOS快捷键</th>
+<th align="center">Windows快捷键</th>
+<th align="center">Windows备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">多级列表</td>
+<td align="center"><code>Cmd</code> + <code>1~6</code></td>
+<td align="center"><code>Ctrl</code> + <code>1~6</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">有序列表</td>
+<td align="center"><code>Cmd</code> + <code>Opt</code> + <code>0</code></td>
+<td align="center"><code>Ctrl</code> + <code>Shift</code> + <code>[</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">无序列表</td>
+<td align="center"><code>Cmd</code> + <code>Opt</code> + <code>U</code></td>
+<td align="center"><code>Ctrl</code> + <code>Shift</code> + <code>]</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">任务列表</td>
+<td align="center"><code>Cmd</code> + <code>Opt</code> + <code>X</code></td>
+<td align="center">无</td>
+<td align="center">- [ ]</td>
+</tr>
+<tr>
+<td align="center">增加列表缩进</td>
+<td align="center"><code>Tab</code></td>
+<td align="center"><code>Tab</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">减少列表缩进</td>
+<td align="center"><code>Shift</code> + <code>Tab</code></td>
+<td align="center"><code>Shift</code> + <code>Tab</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">表格插入行</td>
+<td align="center"><code>Cmd</code> + <code>Return</code></td>
+<td align="center">无</td>
+<td align="center">鼠标右键操作</td>
+</tr>
+<tr>
+<td align="center">表格删除行</td>
+<td align="center"><code>Cmd</code> + <code>Shift</code> + <code>Delete</code></td>
+<td align="center">无</td>
+<td align="center">鼠标右键操作</td>
+</tr>
+<tr>
+<td align="center">行内代码</td>
+<td align="center"><code>Cmd</code> + <code>Shift</code> + <code>反引号</code></td>
+<td align="center"><code>Ctrl</code> + <code>Shift</code> + <code>反引号</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">代码块</td>
+<td align="center"><code>Cmd</code> + <code>Opt</code> + <code>C</code></td>
+<td align="center"><code>Ctrl</code> + <code>Shift</code> + <code>K</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">插入图片</td>
+<td align="center"><code>Ctrl</code> + <code>Cmd</code> + <code>I</code></td>
+<td align="center"><code>Ctrl</code> + <code>Shift</code> + <code>I</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">插入超链接</td>
+<td align="center"><code>Cmd</code> + <code>K</code></td>
+<td align="center"><code>Ctrl</code> + <code>K</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">水平分割线</td>
+<td align="center"><code>Cmd</code> + <code>Shift</code> + <code>-</code></td>
+<td align="center">无</td>
+<td align="center">—</td>
+</tr>
+<tr>
+<td align="center">引用</td>
+<td align="center"><code>Cmd</code> + <code>Shift</code> + <code>Q</code></td>
+<td align="center"><code>Ctrl</code> + <code>Shift</code> + <code>Q</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">粗体</td>
+<td align="center"><code>Cmd</code> + <code>B</code></td>
+<td align="center"><code>Ctrl</code> + <code>B</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">斜体</td>
+<td align="center"><code>Cmd</code> + <code>I</code></td>
+<td align="center"><code>Ctrl</code> + <code>I</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">高亮</td>
+<td align="center"><code>Cmd</code> + <code>Shift</code> + <code>H</code></td>
+<td align="center">无</td>
+<td align="center">==高亮内容==</td>
+</tr>
+<tr>
+<td align="center">大纲视图</td>
+<td align="center"><code>Ctrl</code> + <code>Cmd</code> + <code>1</code></td>
+<td align="center"><code>Ctrl</code> + <code>Shift</code> + <code>1</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">源代码模式</td>
+<td align="center"><code>Cmd</code> + <code>/</code></td>
+<td align="center"><code>Ctrl</code> + <code>/</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">专注模式</td>
+<td align="center"><code>F8</code></td>
+<td align="center"><code>F8</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">打字机模式</td>
+<td align="center"><code>F9</code></td>
+<td align="center"><code>F9</code></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="最后的话"><a href="#最后的话" class="headerlink" title="最后的话"></a>最后的话</h3><p>经过一番波折，肝了几天，终于写完了！</p>
+<p>第一版敲完的时候，我已经困得不行了，我迷迷糊糊爬到电脑桌仍然没忘记要保存文件，然后放心的爬回去继续睡</p>
+<p>第二天果不其然，出问题了，大概率由于系统更新原因把我固态整坏了，无法开机，在我最终祭出重装系统这个大杀器的时候，由于固态出问题电脑识别不到固态硬盘，我只能把系统放在机械硬盘，当我意识到这个问题的严重性时，一切都晚了！！！</p>
+<p>所有数据都没了，游戏、软件、配置环境都没了，彻底清空了，后续恢复也没恢复出来任何对我有价值的文件，更重要的是肝了几天这个教程也没了，彻底心态崩了！</p>
+<p>摆烂了几天，最后还是和自己和解，又肝了几天，才有了现在的版本，这次给了我一个最大的教训那就是：</p>
+<p>千万千万不要乱更新电脑系统！！！！！</p>
+<p>数据一定一定要备份备份备份！！！！！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Louis</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/10/04/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8markdown%E5%86%99%E5%8D%9A%E5%AE%A2/">http://example.com/2022/10/04/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8markdown%E5%86%99%E5%8D%9A%E5%AE%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://img0.baidu.com/it/u=236085137,1979895699&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=360&amp;h=360" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/10/03/hello-world/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img0.baidu.com/it/u=236085137,1979895699&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=360&amp;h=360" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Louis</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://codeworker007.github.io/" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/grh626076457@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=626076457&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Markdown%E6%9D%A5%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">如何优雅的使用Markdown来写博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%AE%A4%E8%AF%86Markdown"><span class="toc-number">1.1.</span> <span class="toc-text">一、认识Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Markdown%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">Markdown简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Markdown%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">Markdown编辑器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8%E6%8E%A8%E8%8D%90"><span class="toc-number">1.1.3.</span> <span class="toc-text">编辑器推荐</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Markdown%E8%AF%AD%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">二、Markdown语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E7%B1%BB%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.1.</span> <span class="toc-text">结构类操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">多级标题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">任务列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E5%B5%8C%E5%A5%97"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">列表的嵌套</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.1.5.1.</span> <span class="toc-text">嵌套列表</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E6%AE%B5%E8%90%BD"><span class="toc-number">1.2.1.5.2.</span> <span class="toc-text">嵌套段落</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.2.1.5.3.</span> <span class="toc-text">嵌套代码块</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%9B%BE%E7%89%87"><span class="toc-number">1.2.1.5.4.</span> <span class="toc-text">嵌套图片</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E5%BC%95%E7%94%A8%E5%9D%97"><span class="toc-number">1.2.1.5.5.</span> <span class="toc-text">嵌套引用块</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">1.2.1.6.</span> <span class="toc-text">表格</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%B1%BB%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.2.</span> <span class="toc-text">代码类操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">行内代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">代码块</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E7%B1%BB%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text">元素类操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E4%BD%93"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">字体</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.2.3.1.1.</span> <span class="toc-text">字体样式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%96%9C%E4%BD%93"><span class="toc-number">1.2.3.1.2.</span> <span class="toc-text">斜体</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%B2%97%E4%BD%93"><span class="toc-number">1.2.3.1.3.</span> <span class="toc-text">粗体</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-number">1.2.3.1.4.</span> <span class="toc-text">下划线</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">1.2.3.1.5.</span> <span class="toc-text">删除线</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%8A%E6%A0%87%E5%92%8C%E4%B8%8B%E6%A0%87"><span class="toc-number">1.2.3.1.6.</span> <span class="toc-text">上标和下标</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A1%A8%E6%83%85%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.2.3.1.7.</span> <span class="toc-text">表情符号</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">超链接</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.3.3.1.</span> <span class="toc-text">外部链接</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%94%9A%E7%82%B9%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.3.3.2.</span> <span class="toc-text">锚点链接</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-number">1.2.3.5.</span> <span class="toc-text">水平分割线</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB"><span class="toc-number">1.3.</span> <span class="toc-text">三、快捷键汇总</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E8%AF%9D"><span class="toc-number">1.4.</span> <span class="toc-text">最后的话</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/10/04/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8markdown%E5%86%99%E5%8D%9A%E5%AE%A2/" title="如何优雅的使用Markdown写博客">如何优雅的使用Markdown写博客</a><time datetime="2022-10-04T07:01:35.000Z" title="Created 2022-10-04 15:01:35">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/03/hello-world/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/10/03/hello-world/" title="No title">No title</a><time datetime="2022-10-03T14:57:44.156Z" title="Created 2022-10-03 22:57:44">2022-10-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Louis</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'QpnDusPDjNRdLSF4101UbVxA-gzGzoHsz',
+      appKey: 'NKMgprCzbq7N5sXq92DiXL00',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/10/04/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8markdown%E5%86%99%E5%8D%9A%E5%AE%A2/'
+    this.page.identifier = '/2022/10/04/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8markdown%E5%86%99%E5%8D%9A%E5%AE%A2/'
+    this.page.title = '如何优雅的使用Markdown写博客'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script>(function(d, w, c) {
+    w.ChatraID = 'zfrS4jur6tozD5Ebp';
+    var s = d.createElement('script');
+    w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+    };
+    s.async = true;
+    s.src = 'https://call.chatra.io/chatra.js';
+    if (d.head) d.head.appendChild(s);
+})(document, window, 'Chatra');
+
+if (false) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      Chatra('openChat')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      Chatra('hide')
+    }
+    function chatBtnShow () {
+      Chatra('show')
+    }
+  }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
